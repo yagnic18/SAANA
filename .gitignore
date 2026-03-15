@@ -1,0 +1,86 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual environments
+venv/
+ENV/
+.env
+.venv
+
+# VS Code
+.vscode/
+
+# Local project files
+*.log
+*.sqlite3
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Raspberry Pi camera / serial data
+*.mp4
+*.avi
+*.mjpeg
+
+# Face and model data
+face_data/
+models/
+vision/
+
+# Secret config
+*.env
+
+# Flask
+instance/
+
+# Python Lint caches
+.mypy_cache/
+.pyright/
+
+# pyproject lock
+poetry.lock
+
+# coverage
+coverage.xml
+
+# temporary deploy
+.tmp/
+
+# ROS catkin workspace
+devel/
+build/
+logs/
