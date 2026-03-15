@@ -1,97 +1,44 @@
-# SAANA Raspberry Pi AI Robot
+# SAANA – Smart Autonomous AI Navigation Assistant
 
-A Python-based Raspberry Pi AI robot platform with obstacle avoidance, camera-based object/face detection, voice notifications, and Flask web controls.
+SAANA is a Raspberry Pi based robotic assistant designed to perform basic autonomous navigation using sensors and computer vision. The system combines ultrasonic obstacle detection, camera-based vision processing, and motor control to allow a robot to move safely in its environment.
 
-## 🚀 Project Summary
+## Features
 
-This project integrates:
-- Motor control via `gpiozero`.
-- Ultrasonic distance sensors for safety.
-- Raspberry Pi camera vision with OpenCV and YOLOv8 fallback.
-- Face recognition (LBPH) and speech output via `espeak`.
-- Web interface served by Flask for remote movement and detection.
+* Obstacle detection using ultrasonic sensors
+* Computer vision processing using OpenCV
+* Motor control using L298N driver
+* Voice command module for basic interaction
+* Flask-based API for controlling the robot
 
-## 📁 Repository Structure
+## Technologies Used
 
-```
-SAANA/
-├── face_data/               # Face training data per person
-├── models/                  # Downloaded vision/model files
-├── robot/
-│   ├── __init__.py
-│   ├── api_server.py        # Flask API + safety monitor + hardware init
-│   ├── constants.py         # GPIO pins, thresholds, directories
-│   ├── motor_control.py     # Motor driving interface
-│   ├── robot_state.py       # Shared critical-stop state
-│   ├── ultrasonic_sensor.py # Distance sensor system
-│   ├── vision_detection.py  # Camera capture, YOLO detection, depth/edge analysis
-│   └── voice_commands.py    # Face recognition, speech output, training helper
-├── vision/                  # Optional vision assets, logs, config
-├── main.py                  # Entrypoint to start Flask app
-├── requirements.txt         # Python dependencies
-└── README.md                # Project docs
-```
+Python
+OpenCV
+Flask
+Raspberry Pi GPIO
+Ultrasonic Sensors
+L298N Motor Driver
 
-## ✅ Features
+## Project Structure
 
-- Web-based control endpoints: `/move/<direction>`, `/detect`
-- Real-time safety monitoring across ultrasonic sensors & camera obstacles
-- Automatic critical stop and motor shutoff upon proximity warnings
-- Face recognition integration with greeting voice responses
-- Modular hardware initialization for relaxed startup on missing components
+main.py – Main program to start the robot
+robot/ – Motor control and sensor logic
+vision/ – Vision detection modules
+models/ – AI models used for detection
+face_data/ – Data used for recognition
 
-## ⚙️ Requirements
+## How to Run
 
-Install the Python dependencies:
+Install dependencies:
 
-```bash
 pip install -r requirements.txt
-```
 
-### Hardware
+Run the main program:
 
-- Raspberry Pi (4 recommended)
-- Motor driver and two DC motors
-- Ultrasonic distance sensors (HC-SR04)
-- Raspberry Pi camera module (or USB webcam)
-- Speaker or headphone output for `espeak`
-
-### Software
-
-- Python 3.9+ (3.11 recommended)
-- Flask web server
-- OpenCV with contrib modules for face recognition
-- YOLOv8 (via `ultralytics`)
-
-## ▶️ Run the Robot
-
-1. Ensure your GPIO pins are configured correctly in `robot/constants.py`.
-2. Start the app:
-
-```bash
 python main.py
-```
 
-3. Open your browser at `http://<pi-ip>:5000`.
+## Future Improvements
 
-## 🧠 Notes
-
-- The code is intentionally modular and does not change runtime behavior automatically.
-- `robot/vision_detection.py` uses `rpicam-still`/`libcamera-still` and streams if available.
-- Face recognition uses LBPH and requires `opencv-contrib-python`.
-
-## 📌 Quick API
-
-- `GET /` – Simple status page with camera preview placeholder.
-- `GET /move/<forward|backward|left|right|stop>` – Drive commands.
-- `GET /detect` – Captures frame and returns scene detection summary.
-
-## 📝 Contribution
-
-1. Fork the repo.
-2. Create a feature branch.
-3. Open PR with hardware/test details.
-
----
-
-If you want, I can also add a `setup.sh` for Raspberry Pi package install steps and a minimal `docker`/`systemd` service file.
+* Improve object detection accuracy
+* Add better voice interaction system
+* Deploy full autonomous navigation
