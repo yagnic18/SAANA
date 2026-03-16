@@ -1,6 +1,6 @@
 # SAANA – Smart Autonomous AI Navigation Assistant
 
-![Robot Overview](images/robot_overview.jpg)
+![Robot Overview](robot_overview.jpg)
 
 SAANA is a Raspberry Pi-based robotic assistant designed to perform basic autonomous navigation using sensors and computer vision. The system combines ultrasonic obstacle detection, camera-based vision processing, and motor control to allow a robot to move safely in its environment.
 
